@@ -1,5 +1,22 @@
 from django.db import models
 
+class SobreMim(models.Model):
+
+    nome = models.CharField(max_length=200)
+
+    biografia = models.TextField()
+
+    email = models.EmailField(blank=True)
+
+    linkedin = models.URLField(blank=True)
+
+    github = models.URLField(blank=True)
+
+    objetivo_profissional = models.TextField(blank=True)
+
+    def __str__(self):
+
+        return self.nome
 
 class Licenciatura(models.Model):
 
