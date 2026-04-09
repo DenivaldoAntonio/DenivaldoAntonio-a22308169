@@ -37,6 +37,8 @@ class LicenciaturaAdmin(admin.ModelAdmin):
         "sigla"
     )
 
+    ordering = ("nome",)
+
 
 @admin.register(UnidadeCurricular)
 class UnidadeCurricularAdmin(admin.ModelAdmin):
@@ -50,8 +52,9 @@ class UnidadeCurricularAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        "semestre",
-        "licenciatura"
+        "licenciatura",
+        "ects",
+        "semestre"
     )
 
     search_fields = (
@@ -59,14 +62,15 @@ class UnidadeCurricularAdmin(admin.ModelAdmin):
         "codigo"
     )
 
+    ordering = ("nome",)
+
 
 @admin.register(Docente)
 class DocenteAdmin(admin.ModelAdmin):
 
     list_display = (
         "nome",
-        "email",
-        "pagina_lusofona"
+        "email"
     )
 
     search_fields = (
@@ -77,6 +81,8 @@ class DocenteAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "unidades",
     )
+
+    ordering = ("nome",)
 
 
 @admin.register(Tecnologia)
@@ -94,6 +100,8 @@ class TecnologiaAdmin(admin.ModelAdmin):
     search_fields = (
         "nome",
     )
+
+    ordering = ("nome",)
 
 
 @admin.register(Projeto)
@@ -121,6 +129,8 @@ class ProjetoAdmin(admin.ModelAdmin):
         "tecnologias",
     )
 
+    ordering = ("-data",)
+
 
 @admin.register(Competencia)
 class CompetenciaAdmin(admin.ModelAdmin):
@@ -132,6 +142,7 @@ class CompetenciaAdmin(admin.ModelAdmin):
 
     list_filter = (
         "nivel",
+        "tecnologias"
     )
 
     search_fields = (
@@ -142,6 +153,8 @@ class CompetenciaAdmin(admin.ModelAdmin):
         "tecnologias",
         "projetos"
     )
+
+    ordering = ("nivel",)
 
 
 @admin.register(Formacao)
@@ -155,13 +168,16 @@ class FormacaoAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        "data_inicio",
+        "entidade",
+        "data_inicio"
     )
 
     search_fields = (
         "nome",
         "entidade"
     )
+
+    ordering = ("-data_inicio",)
 
 
 @admin.register(TFC)
@@ -176,7 +192,8 @@ class TFCAdmin(admin.ModelAdmin):
 
     list_filter = (
         "ano",
-        "interesse"
+        "interesse",
+        "tecnologias"
     )
 
     search_fields = (
@@ -186,6 +203,8 @@ class TFCAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "tecnologias",
     )
+
+    ordering = ("-ano",)
 
 
 @admin.register(MakingOf)
@@ -203,3 +222,5 @@ class MakingOfAdmin(admin.ModelAdmin):
     search_fields = (
         "titulo",
     )
+
+    ordering = ("-data",)
