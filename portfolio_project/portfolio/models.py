@@ -151,10 +151,16 @@ class MakingOf(models.Model):
 
     data = models.DateField(blank=True, null=True)
 
+    projeto = models.ForeignKey(
+        Projeto,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
     def __str__(self):
 
         return self.titulo
-    
 
 class SobreMim(models.Model):
 
