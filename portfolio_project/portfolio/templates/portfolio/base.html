@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio</title>
+
+<link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+<nav>
+
+<a href="{% url 'home' %}">Sobre mim</a>
+
+<a href="{% url 'uc' %}">Unidades Curriculares</a>
+
+<a href="{% url 'docentes' %}">Docentes</a>
+
+</nav>
+
+</header>
+
+
+<main class="page">
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+
+<footer>
+
+<p>© 2026</p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+/* HERO estilo portfolio */
+/* NAVBAR */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:30px 60px;
+
+    background:#e6ebf2; 
+
+    z-index:1000; /* garante que fica por cima */
+
+    font-size:14px;
+
+}
+
+
+/* links do menu */
+
+.navbar nav{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+/* estilo dos links */
+
+.navbar a{
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-weight:500;
+
+    letter-spacing:0.03em;
+
+    position:relative;
+
+    transition:opacity 0.2s ease;
+
+}
+
+
+/* linha elegante ao passar o rato */
+
+.navbar a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:0;
+
+    height:1px;
+
+    background:black;
+
+    transition:width 0.2s ease;
+
+}
+
+.navbar a:hover::after{
+
+    width:100%;
+
+}
+
+.navbar a:hover{
+
+    opacity:0.7;
+
+}
+
+
+/* espaço para compensar navbar fixa */
+
+.page{
+
+    padding-top:50px;
+
+}
+
+.hero{
+    background:white;
+    border-radius:12px;
+    padding:60px;
+
+    display:flex;
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+
+    min-height:65vh;   
+}
+
+.hero-left{
+    width:55%;
+}
+
+.hero-left h1{
+    font-size:48px;
+    font-weight:500;
+    margin-bottom:5px;
+}
+
+.role{
+    font-size:14px;
+    color:#6b7280;
+    margin-bottom:40px;
+}
+
+.hero-links{
+    list-style:none;
+    padding:0;
+}
+
+.hero-links li{
+    margin-bottom:10px;
+}
+
+.hero-links a{
+    text-decoration:none;
+    color:#111827;
+    font-weight:500;
+}
+
+.hero-links a:hover{
+    color:#2563eb;
+}
+
+/* lado direito */
+
+.hero-right{
+     width:320px;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    color:#374151;
+
+    align-self:flex-end;   /* desce o texto */
+}
+
+/* fundo da página */
+
+body{
+    background:#e6ebf2;
+}
+
+/* CONTAINER DAS PÁGINAS */
+
+.content-box{
+
+    background:#f5f6f8;
+
+    border:2px solid black;
+
+    border-radius:14px;
+
+    padding:50px;
+
+    width:85%;
+
+    margin:40px auto;
+
+}
+
+
+/* título da página */
+
+.page-title{
+
+    font-size:28px;
+
+    margin-bottom:30px;
+
+}
+
+
+/* CARD */
+
+.card{
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    border:1px solid #d1d5db;
+
+    transition:all 0.2s ease;
+
+}
+
+
+/* hover */
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+/* título do card */
+
+.card h3{
+
+    margin-bottom:10px;
+
+    font-size:20px;
+
+}
+
+
+/* texto */
+
+.card p{
+
+    margin:4px 0;
+
+    font-size:14px;
+
+}
+
+
+/* lista docentes */
+
+.card ul{
+
+    margin-top:10px;
+
+    padding-left:18px;
+
+}
+
+/* LINKS SOCIAIS (LinkedIn / GitHub) */
+
+.social-links{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.social-links a{
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    letter-spacing:0.03em;
+
+    position:relative;
+
+    width:fit-content;
+
+    transition:opacity 0.2s ease;
+
+}
+
+
+/* linha elegante igual ao navbar */
+
+.social-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-3px;
+
+    width:0;
+
+    height:1px;
+
+    background:black;
+
+    transition:width 0.2s ease;
+
+}
+
+
+.social-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+.social-links a:hover{
+
+    opacity:0.7;
+
+}
+
+.social-links{
+    flex-direction:row;
+    gap:20px;
+}

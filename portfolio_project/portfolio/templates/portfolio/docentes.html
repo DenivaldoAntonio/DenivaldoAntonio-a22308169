@@ -1,0 +1,29 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+<h2 class="page-title">Docentes</h2>
+
+{% for docente in docentes %}
+
+<div class="card">
+
+<h3>{{ docente.nome }}</h3>
+
+<p>{{ docente.email }}</p>
+
+<a href="{{ docente.pagina_lusofona }}" target="_blank">
+
+Página Lusófona
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}

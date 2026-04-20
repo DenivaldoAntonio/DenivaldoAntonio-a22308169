@@ -26,6 +26,8 @@ class UnidadeCurricular(models.Model):
 
     ects = models.IntegerField()
 
+    ano = models.IntegerField(null=True)
+
     semestre = models.IntegerField()
 
     descricao = models.TextField(blank=True)

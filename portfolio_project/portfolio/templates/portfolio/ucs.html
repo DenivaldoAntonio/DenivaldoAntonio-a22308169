@@ -1,0 +1,47 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+<h2 class="page-title">Lista de UCs</h2>
+
+{% for uc in ucs %}
+
+<div class="card">
+
+<h3>{{ uc.nome }}</h3>
+
+<p><strong>Código:</strong> {{ uc.codigo }}</p>
+
+<p><strong>ECTS:</strong> {{ uc.ects }}</p>
+
+<p><strong>Ano:</strong> {{ uc.ano }}</p>
+
+<p><strong>Semestre:</strong> {{ uc.semestre }}</p>
+
+<p><strong>Licenciatura:</strong> {{ uc.licenciatura }}</p>
+
+<p><strong>Docentes:</strong></p>
+
+<ul>
+
+{% for docente in uc.docente_set.all %}
+
+<li>{{ docente.nome }}</li>
+
+{% empty %}
+
+<li>Sem docente associado</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}

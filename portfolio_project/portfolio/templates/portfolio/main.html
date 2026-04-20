@@ -1,0 +1,40 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>{{ sobre.nome }}</h1>
+
+        <p class="role">
+            {{ sobre.objetivo_profissional }}
+        </p>
+
+    </div>
+
+
+    <div class="hero-right">
+
+        <p>
+            {{ sobre.biografia }}
+        </p>
+
+        <div class="social-links">
+
+            <a href="{{ sobre.linkedin }}" target="_blank">
+                LinkedIn
+            </a>
+
+            <a href="{{ sobre.github }}" target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
