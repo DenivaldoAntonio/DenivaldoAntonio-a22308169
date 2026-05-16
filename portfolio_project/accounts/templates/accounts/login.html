@@ -1,0 +1,49 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2 class="auth-title">
+
+            Login
+
+        </h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="auth-btn">
+
+                Entrar
+
+            </button>
+
+        </form>
+
+        <div class="auth-link">
+
+            
+        <a href="{% url 'magic_link' %}" class="btn">
+                Entrar com Link Mágico
+        </a>
+            Não tens conta?
+
+            <a href="/register/">
+
+                Criar conta
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -7,10 +7,12 @@ urlpatterns = [
 
     path("admin/", admin.site.urls),
 
-    # liga todas as páginas da app portfolio
-    path("portfolio/", include("portfolio.urls")),
+    path("", include("portfolio.urls")),
+
+    path("", include("accounts.urls")),
 
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -5,49 +5,56 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio</title>
+    <title>Portfolio</title>
 
 <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
 
 </head>
 
-
 <body>
 
 <header class="navbar">
 
-<nav>
+    <nav>
 
-<a href="{% url 'home' %}">Sobre mim</a>
+        <a href="{% url 'home' %}">Sobre mim</a>
 
-<a href="{% url 'uc' %}">Unidades Curriculares</a>
+        <a href="{% url 'ucs' %}">UCs</a>
 
-<a href="{% url 'docentes' %}">Docentes</a>
+        <a href="{% url 'docentes' %}">Docentes</a>
 
-</nav>
+        {% if request.user.is_authenticated %}
+
+            <a href="/logout/">Logout</a>
+
+        {% else %}
+
+            <a href="/login/">Login</a>
+
+            <a href="/register/">Registo</a>
+
+        {% endif %}
+
+    </nav>
 
 </header>
 
-
 <main class="page">
 
-{% block content %}
-
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
 </main>
 
-
 <footer>
 
-<p>© 2026</p>
+    <p>© 2026 - Portfolio</p>
 
 </footer>
-
 
 </body>
 

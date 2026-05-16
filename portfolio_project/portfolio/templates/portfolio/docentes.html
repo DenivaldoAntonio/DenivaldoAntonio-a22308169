@@ -4,25 +4,67 @@
 
 <section class="content-box">
 
-<h2 class="page-title">Docentes</h2>
+    <h2 class="page-title">Docentes</h2>
 
-{% for docente in docentes %}
 
-<div class="card">
+    <!-- BOTÃO NOVO DOCENTE -->
 
-<h3>{{ docente.nome }}</h3>
+    {% if request.user.is_authenticated %}
 
-<p>{{ docente.email }}</p>
+    <div class="top-actions">
 
-<a href="{{ docente.pagina_lusofona }}" target="_blank">
+        <a href="{% url 'criar_docente' %}" class="btn">
 
-Página Lusófona
+            Novo Docente
 
-</a>
+        </a>
 
-</div>
+    </div>
 
-{% endfor %}
+    {% endif %}
+
+
+    <!-- LISTA DE DOCENTES -->
+
+    {% for docente in docentes %}
+
+    <div class="card">
+
+        <h3>{{ docente.nome }}</h3>
+
+        <p>{{ docente.email }}</p>
+
+        <a href="{{ docente.pagina_lusofona }}" target="_blank">
+
+            Página Lusófona
+
+        </a>
+
+
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_docente' docente.id %}" class="btn">
+
+                Editar
+
+            </a>
+
+            <a href="{% url 'apagar_docente' docente.id %}" class="btn-delete">
+
+                Apagar
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
 
 </section>
 

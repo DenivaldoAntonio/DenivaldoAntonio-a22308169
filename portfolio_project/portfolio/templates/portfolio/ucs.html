@@ -6,6 +6,19 @@
 
 <h2 class="page-title">Lista de UCs</h2>
 
+
+
+{% if request.user.groups.all.0.name == 'gestor_portfolio' %}
+
+<a href="{% url 'criar_uc' %}" class="btn">
+
+Nova UC
+
+</a>
+
+{% endif %}
+
+
 {% for uc in ucs %}
 
 <div class="card">
@@ -37,6 +50,28 @@
 {% endfor %}
 
 </ul>
+
+
+
+{% if request.user.groups.all.0.name == 'gestor_portfolio' %}
+
+<div style="margin-top:20px;">
+
+<a href="{% url 'editar_uc' uc.id %}" class="btn">
+
+Editar
+
+</a>
+
+<a href="{% url 'apagar_uc' uc.id %}" class="btn-delete">
+
+Apagar
+
+</a>
+
+</div>
+
+{% endif %}
 
 </div>
 

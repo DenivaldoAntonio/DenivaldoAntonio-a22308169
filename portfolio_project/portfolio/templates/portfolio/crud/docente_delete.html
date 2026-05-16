@@ -1,0 +1,29 @@
+
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+<h1>Apagar Docente</h1>
+
+<p>Tens a certeza?</p>
+
+<p><strong>{{ docente.nome }}</strong></p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn-delete">
+
+        Apagar
+
+    </button>
+
+</form>
+
+</div>
+
+{% endblock %}

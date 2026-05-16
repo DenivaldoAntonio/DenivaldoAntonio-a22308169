@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "portfolio",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,8 @@ import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+LOGIN_URL = '/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+

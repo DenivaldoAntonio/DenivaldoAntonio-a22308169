@@ -1,0 +1,10 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('register/', views.register_view, name='register'),
+    path('magic-link/',views.magic_link_request,name='magic_link'),
+    path('magic/<int:uid>/<str:token>/',views.magic_login,name='magic_login'),
+]
