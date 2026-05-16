@@ -1,3 +1,7 @@
+import os
+import environ
+
+
 """
 Django settings for portfolio_project project.
 
@@ -14,6 +18,14 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# inicializar environ
+env = environ.Env()
+
+# ler ficheiro .env
+environ.Env.read_env(
+    os.path.join(BASE_DIR, ".env")
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,10 +51,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "portfolio",
     "accounts",
+    "cloudinary",
+    "cloudinary_storage",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -75,10 +90,7 @@ WSGI_APPLICATION = "portfolio_project.wsgi.application"
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": env.db("DATABASE_URL")
 }
 
 
@@ -118,9 +130,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-import os
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
@@ -128,3 +138,21 @@ LOGIN_URL = '/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET'),
+}
+
+STORAGES = {
+
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

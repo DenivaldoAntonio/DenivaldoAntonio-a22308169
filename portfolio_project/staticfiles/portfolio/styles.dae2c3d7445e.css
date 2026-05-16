@@ -1,0 +1,669 @@
+/* HERO estilo portfolio */
+/* NAVBAR */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:30px 60px;
+
+    background:#e6ebf2; 
+
+    z-index:1000; /* garante que fica por cima */
+
+    font-size:14px;
+
+}
+
+
+/* links do menu */
+
+.navbar nav{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+/* estilo dos links */
+
+.navbar a{
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-weight:500;
+
+    letter-spacing:0.03em;
+
+    position:relative;
+
+    transition:opacity 0.2s ease;
+
+}
+
+
+/* linha elegante ao passar o rato */
+
+.navbar a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:0;
+
+    height:1px;
+
+    background:black;
+
+    transition:width 0.2s ease;
+
+}
+
+.navbar a:hover::after{
+
+    width:100%;
+
+}
+
+.navbar a:hover{
+
+    opacity:0.7;
+
+}
+
+
+/* espaço para compensar navbar fixa */
+
+.page{
+
+    padding-top:50px;
+
+}
+
+.hero{
+    background:white;
+    border-radius:12px;
+    padding:60px;
+
+    display:flex;
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+
+    min-height:65vh;   
+}
+
+.hero-left{
+    width:55%;
+}
+
+.hero-left h1{
+    font-size:48px;
+    font-weight:500;
+    margin-bottom:5px;
+}
+
+.role{
+    font-size:14px;
+    color:#6b7280;
+    margin-bottom:40px;
+}
+
+.hero-links{
+    list-style:none;
+    padding:0;
+}
+
+.hero-links li{
+    margin-bottom:10px;
+}
+
+.hero-links a{
+    text-decoration:none;
+    color:#111827;
+    font-weight:500;
+}
+
+.hero-links a:hover{
+    color:#2563eb;
+}
+
+/* lado direito */
+
+.hero-right{
+     width:320px;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    color:#374151;
+
+    align-self:flex-end;   /* desce o texto */
+}
+
+/* fundo da página */
+
+body{
+    background:#e6ebf2;
+}
+
+/* CONTAINER DAS PÁGINAS */
+
+.content-box{
+
+    background:#f5f6f8;
+
+    border:2px solid black;
+
+    border-radius:14px;
+
+    padding:50px;
+
+    width:85%;
+
+    margin:40px auto;
+
+}
+
+
+/* título da página */
+
+.page-title{
+
+    font-size:28px;
+
+    margin-bottom:30px;
+
+}
+
+
+/* CARD */
+
+.card{
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:30px;
+
+    margin-bottom:20px;
+
+    border:1px solid #d1d5db;
+
+    transition:all 0.2s ease;
+
+}
+
+
+/* hover */
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+/* título do card */
+
+.card h3{
+
+    margin-bottom:10px;
+
+    font-size:20px;
+
+    line-height:1.2;
+
+    letter-spacing:-0.5px;
+
+}
+
+
+/* texto */
+
+.card p{
+    margin:8px 0;
+    font-size:15px;
+    color:#4b5563;
+}
+
+
+/* lista docentes */
+
+.card ul{
+
+    margin-top:10px;
+
+    padding-left:18px;
+
+}
+
+/* LINKS SOCIAIS (LinkedIn / GitHub) */
+
+.social-links{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.social-links a{
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    letter-spacing:0.03em;
+
+    position:relative;
+
+    width:fit-content;
+
+    transition:opacity 0.2s ease;
+
+}
+
+
+/* linha elegante igual ao navbar */
+
+.social-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-3px;
+
+    width:0;
+
+    height:1px;
+
+    background:black;
+
+    transition:width 0.2s ease;
+
+}
+
+
+.social-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+.social-links a:hover{
+
+    opacity:0.7;
+
+}
+
+.social-links{
+    flex-direction:row;
+    gap:20px;
+}
+
+
+
+/* =========================
+AÇÕES
+========================= */
+
+.actions{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+
+/* BOTÃO EDITAR */
+
+.actions .btn{
+
+    background:#38bdf8;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    display:inline-block;
+}
+
+
+
+.actions .btn-delete{
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    display:inline-block;
+}
+
+/* =========================
+AUTH
+========================= */
+
+.auth-container{
+
+    width:100%;
+
+    min-height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+.auth-card{
+
+    width:450px;
+
+    background:#1e293b;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+
+.auth-title{
+
+    text-align:center;
+
+    font-size:36px;
+
+    margin-bottom:30px;
+
+    color:#38bdf8;
+}
+
+
+/* FORM */
+
+.auth-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+
+.auth-card label{
+
+    color:white;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+}
+
+
+.auth-card input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#334155;
+
+    color:white;
+
+    font-size:16px;
+}
+
+
+.auth-card input:focus{
+
+    outline:none;
+
+    border:2px solid #38bdf8;
+}
+
+
+/* BOTÃO */
+
+.auth-btn{
+
+    background:#38bdf8;
+
+    color:white;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.auth-btn:hover{
+
+    background:#0ea5e9;
+
+    transform:translateY(-2px);
+}
+
+
+/* LINKS */
+
+.auth-link{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#cbd5e1;
+}
+
+
+.auth-link a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: #38bdf8;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0ea5e9;
+}
+
+.btn-delete {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: #ef4444;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+.card a{
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:500;
+
+    position:relative;
+
+    transition:0.2s ease;
+}
+
+
+/* linha elegante */
+
+.card a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:0;
+
+    height:1px;
+
+    background:#2563eb;
+
+    transition:width 0.2s ease;
+}
+
+
+.card a:hover::after{
+
+    width:100%;
+}
+
+
+.card a:hover{
+
+    opacity:0.8;
+}
+
+.card a:not(.btn):not(.btn-delete){
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    position:relative;
+
+    width:fit-content;
+
+    display:inline-block;
+}
+
+.card a:not(.btn):not(.btn-delete)::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:0;
+
+    height:1px;
+
+    background:#2563eb;
+
+    transition:0.2s;
+}
+
+
+.card a:not(.btn):not(.btn-delete):hover::after{
+
+    width:100%;
+}
+
+.btn,
+.btn:visited,
+.btn:focus{
+
+    color:white !important;
+}
+
+
+.btn-delete,
+.btn-delete:visited,
+.btn-delete:focus{
+
+    color:white !important;
+}
