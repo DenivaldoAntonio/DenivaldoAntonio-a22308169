@@ -1,0 +1,53 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+    <h2 class="page-title">Making Ofs</h2>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="top-actions">
+
+        <a href="{% url 'criar_makingof' %}" class="btn">
+            Novo Making Of
+        </a>
+
+    </div>
+
+    {% endif %}
+
+    {% for makingof in makingofs %}
+
+    <div class="card">
+
+        <h3>{{ makingof.titulo }}</h3>
+
+        <p>{{ makingof.descricao }}</p>
+
+        <p><strong>Projeto:</strong> {{ makingof.projeto }}</p>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_makingof' makingof.id %}" class="btn">
+                Editar
+            </a>
+
+            <a href="{% url 'apagar_makingof' makingof.id %}" class="btn-delete">
+                Apagar
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

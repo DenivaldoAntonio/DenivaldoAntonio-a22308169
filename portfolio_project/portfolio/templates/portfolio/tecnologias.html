@@ -1,0 +1,68 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+    <h2 class="page-title">Tecnologias</h2>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="top-actions">
+
+        <a href="{% url 'criar_tecnologia' %}" class="btn">
+
+            Nova Tecnologia
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+    {% for tecnologia in tecnologias %}
+
+    <div class="card">
+
+        <h3>{{ tecnologia.nome }}</h3>
+
+        <p>{{ tecnologia.descricao }}</p>
+
+        <p>
+            <strong>Nível de Interesse:</strong>
+            {{ tecnologia.nivel_interesse }}
+        </p>
+
+        <a href="{{ tecnologia.website }}" target="_blank">
+
+            Website
+
+        </a>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_tecnologia' tecnologia.id %}" class="btn">
+
+                Editar
+
+            </a>
+
+            <a href="{% url 'apagar_tecnologia' tecnologia.id %}" class="btn-delete">
+
+                Apagar
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

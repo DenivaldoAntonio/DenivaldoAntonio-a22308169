@@ -61,4 +61,37 @@ urlpatterns = [
         views.apagar_docente,
         name='apagar_docente'
     ),
+
+    path(
+    'tecnologias/',
+    views.tecnologias_view,
+    name='tecnologias'
+),
+
+path(
+    'tecnologias/criar/',
+    views.criar_tecnologia,
+    name='criar_tecnologia'
+),
+
+path(
+    'tecnologias/editar/<int:id>/',
+    views.editar_tecnologia,
+    name='editar_tecnologia'
+),
+
+path(
+    'tecnologias/apagar/<int:id>/',
+    views.apagar_tecnologia,
+    name='apagar_tecnologia'
+),
+
+path('competencias/', views.competencias_view, name='competencias'),
+path('projetos/', views.projetos_view, name='projetos'),
+path('licenciaturas/', views.licenciaturas_view, name='licenciaturas'),
+path('formacoes/', views.formacoes_view, name='formacoes'),
+path('makingofs/', views.makingofs_view, name='makingofs'),
+path('tfcs/', views.tfcs_view, name='tfcs'),
+
 ]
+

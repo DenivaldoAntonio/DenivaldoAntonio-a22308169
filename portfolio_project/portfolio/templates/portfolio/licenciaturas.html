@@ -1,0 +1,57 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+    <h2 class="page-title">Licenciaturas</h2>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="top-actions">
+
+        <a href="{% url 'criar_licenciatura' %}" class="btn">
+            Nova Licenciatura
+        </a>
+
+    </div>
+
+    {% endif %}
+
+    {% for licenciatura in licenciaturas %}
+
+    <div class="card">
+
+        <h3>{{ licenciatura.nome }}</h3>
+
+        <p><strong>Sigla:</strong> {{ licenciatura.sigla }}</p>
+
+        <p><strong>Instituição:</strong> {{ licenciatura.instituicao }}</p>
+
+        <p>{{ licenciatura.descricao }}</p>
+
+        <p><strong>Ano Início:</strong> {{ licenciatura.ano_inicio }}</p>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_licenciatura' licenciatura.id %}" class="btn">
+                Editar
+            </a>
+
+            <a href="{% url 'apagar_licenciatura' licenciatura.id %}" class="btn-delete">
+                Apagar
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

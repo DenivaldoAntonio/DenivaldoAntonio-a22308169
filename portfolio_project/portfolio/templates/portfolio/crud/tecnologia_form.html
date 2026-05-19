@@ -1,0 +1,25 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+<h2 class="page-title">
+    Formulário Tecnologia
+</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn">
+        Guardar
+    </button>
+
+</form>
+
+</section>
+
+{% endblock %}

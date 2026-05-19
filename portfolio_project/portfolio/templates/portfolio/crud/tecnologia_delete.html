@@ -1,0 +1,28 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+<h2>
+    Apagar Tecnologia
+</h2>
+
+<p>
+    Tem a certeza que deseja apagar:
+    <strong>{{ tecnologia.nome }}</strong>?
+</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn-delete">
+        Confirmar
+    </button>
+
+</form>
+
+</section>
+
+{% endblock %}

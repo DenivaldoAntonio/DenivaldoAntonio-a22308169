@@ -1,0 +1,60 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+    <h2 class="page-title">Formações</h2>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="top-actions">
+
+        <a href="{% url 'criar_formacao' %}" class="btn">
+            Nova Formação
+        </a>
+
+    </div>
+
+    {% endif %}
+
+    {% for formacao in formacoes %}
+
+    <div class="card">
+
+        <h3>{{ formacao.nome }}</h3>
+
+        <p><strong>Entidade:</strong> {{ formacao.entidade }}</p>
+
+        <p>{{ formacao.descricao }}</p>
+
+        <p>
+            <strong>Certificado:</strong>
+            <a href="{{ formacao.certificado }}">
+                Ver Certificado
+            </a>
+        </p>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_formacao' formacao.id %}" class="btn">
+                Editar
+            </a>
+
+            <a href="{% url 'apagar_formacao' formacao.id %}" class="btn-delete">
+                Apagar
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

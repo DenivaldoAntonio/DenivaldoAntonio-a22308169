@@ -1,5 +1,4 @@
 
-
 from django.shortcuts import (
     render,
     redirect,
@@ -13,12 +12,20 @@ from django.http import HttpResponseForbidden
 from .models import (
     UnidadeCurricular,
     Docente,
-    SobreMim
+    SobreMim,
+    Tecnologia,
+    Competencia,
+    TFC,
+    Formacao,
+    Projeto,
+    MakingOf,
+    Licenciatura
 )
 
 from .forms import (
     UnidadeCurricularForm,
-    DocenteForm
+    DocenteForm,
+    TecnologiaForm
 )
 
 
@@ -235,3 +242,154 @@ def apagar_docente(request, id):
         'portfolio/crud/docente_delete.html',
         {'docente': docente}
     )
+
+def tecnologias_view(request):
+
+    tecnologias = Tecnologia.objects.all()
+
+    return render(
+        request,
+        'portfolio/tecnologias.html',
+        {'tecnologias': tecnologias}
+    )
+
+@login_required
+def criar_tecnologia(request):
+
+    if not is_gestor(request.user):
+
+        return HttpResponseForbidden()
+
+    form = TecnologiaForm(
+        request.POST or None
+    )
+
+    if form.is_valid():
+
+        form.save()
+
+        return redirect('tecnologias')
+
+    return render(
+        request,
+        'portfolio/crud/tecnologia_form.html',
+        {'form': form}
+    )
+
+
+@login_required
+def editar_tecnologia(request, id):
+
+    if not is_gestor(request.user):
+
+        return HttpResponseForbidden()
+
+    tecnologia = get_object_or_404(
+        Tecnologia,
+        id=id
+    )
+
+    form = TecnologiaForm(
+        request.POST or None,
+        instance=tecnologia
+    )
+
+    if form.is_valid():
+
+        form.save()
+
+        return redirect('tecnologias')
+
+    return render(
+        request,
+        'portfolio/crud/tecnologia_form.html',
+        {
+            'form': form,
+            'tecnologia': tecnologia
+        }
+    )
+
+@login_required
+def apagar_tecnologia(request, id):
+
+    if not is_gestor(request.user):
+
+        return HttpResponseForbidden()
+
+    tecnologia = get_object_or_404(
+        Tecnologia,
+        id=id
+    )
+
+    if request.method == 'POST':
+
+        tecnologia.delete()
+
+        return redirect('tecnologias')
+
+    return render(
+        request,
+        'portfolio/crud/tecnologia_delete.html',
+        {'tecnologia': tecnologia}
+    )
+
+def competencias_view(request):
+
+    competencias = Competencia.objects.all()
+
+    return render(
+        request,
+        'portfolio/competencias.html',
+        {'competencias': competencias}
+    )
+
+def projetos_view(request):
+
+    projetos = Projeto.objects.all()
+
+    return render(
+        request,
+        'portfolio/projetos.html',
+        {'projetos': projetos}
+    )
+
+def licenciaturas_view(request):
+
+    licenciaturas = Licenciatura.objects.all()
+
+    return render(
+        request,
+        'portfolio/licenciaturas.html',
+        {'licenciaturas': licenciaturas}
+    )
+
+def formacoes_view(request):
+
+    formacoes = Formacao.objects.all()
+
+    return render(
+        request,
+        'portfolio/formacoes.html',
+        {'formacoes': formacoes}
+    )
+
+def makingofs_view(request):
+
+    makingofs = MakingOf.objects.all()
+
+    return render(
+        request,
+        'portfolio/makingOfs.html',
+        {'makingofs': makingofs}
+    )
+
+def tfcs_view(request):
+
+    tfcs = TFC.objects.all()
+
+    return render(
+        request,
+        'portfolio/tfcs.html',
+        {'tfcs': tfcs}
+    )
+

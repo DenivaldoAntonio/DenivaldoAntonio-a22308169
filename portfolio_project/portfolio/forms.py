@@ -3,7 +3,8 @@ from django import forms
 
 from .models import (
     UnidadeCurricular,
-    Docente
+    Docente,
+    Tecnologia
 )
 
 
@@ -21,5 +22,13 @@ class DocenteForm(forms.ModelForm):
     class Meta:
 
         model = Docente
+
+        fields = '__all__'
+
+class TecnologiaForm(forms.ModelForm):
+
+    class Meta:
+
+        model = Tecnologia
 
         fields = '__all__'

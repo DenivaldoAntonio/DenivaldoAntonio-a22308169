@@ -1,0 +1,55 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<section class="content-box">
+
+    <h2 class="page-title">TFCs</h2>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="top-actions">
+
+        <a href="{% url 'criar_tfc' %}" class="btn">
+            Novo TFC
+        </a>
+
+    </div>
+
+    {% endif %}
+
+    {% for tfc in tfcs %}
+
+    <div class="card">
+
+        <h3>{{ tfc.titulo }}</h3>
+
+        <p>{{ tfc.descricao }}</p>
+
+        <p><strong>Autor:</strong> {{ tfc.autor }}</p>
+
+        <p><strong>Ano:</strong> {{ tfc.ano }}</p>
+
+        {% if request.user.is_authenticated %}
+
+        <div class="actions">
+
+            <a href="{% url 'editar_tfc' tfc.id %}" class="btn">
+                Editar
+            </a>
+
+            <a href="{% url 'apagar_tfc' tfc.id %}" class="btn-delete">
+                Apagar
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}
